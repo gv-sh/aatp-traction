@@ -86,7 +86,7 @@ services:
       - ${TRACTION_ACAPY_ADMIN_PORT}:${TRACTION_ACAPY_ADMIN_PORT}
       - ${TRACTION_ACAPY_HTTP_PORT}:${TRACTION_ACAPY_HTTP_PORT}
     entrypoint: /bin/bash
-    command: ["-c", "sleep 5; ./ngrok-wait.sh"]
+    command: ["-c", "sleep 15; ./ngrok-wait.sh"]
     volumes:
       - "./plugin-config.yml:/home/aries/plugin-config.yml"
       - "./ledgers.yml:/home/aries/ledgers.yml"
@@ -258,9 +258,9 @@ services:
       - endorser-wallet:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      interval: 15s
+      timeout: 10s
+      retries: 10
     extra_hosts:
       - host.docker.internal:host-gateway
 

@@ -136,8 +136,6 @@ services:
       - SERVER_SMTP_PORT=1025
     ports:
       - ${TENANT_UI_PORT}:8080
-    command: >
-      /bin/sh -c "NODE_OPTIONS='--max-old-space-size=6144' npm run build"
     ###############################################
     # Comment the following out if you want to use the default reservation form
     volumes:

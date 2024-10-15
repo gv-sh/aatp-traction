@@ -6,7 +6,7 @@ RUN npm cache clean --force && npm ci
 # install frontend libs
 RUN cd frontend && npm cache clean --force && npm ci
 # build backend
-RUN npm run build
+RUN NODE_OPTIONS='--max-old-space-size=6144' npm run build
 # build frontend
 RUN cd frontend && npm run build
 # these are not needed now, save some space
